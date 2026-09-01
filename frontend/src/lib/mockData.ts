@@ -5,14 +5,22 @@ export interface VendorData {
   name: string;
   phone: string;
   email?: string;
-  businessType: "homestay" | "guide" | "package" | "artisan";
-  location: string;
+  businessType?: "homestay" | "guide" | "package" | "artisan";
+  business_type?: string;
+  location?: string;
+  city?: string;
+  state?: string;
   verified: boolean;
-  trustTier: "Gold" | "Silver" | "Bronze" | "New";
-  memberSince: string;
-  responseTime: string;
-  avatar: string;
+  trustTier?: "Gold" | "Silver" | "Bronze" | "New";
+  trust_tier?: string;
+  memberSince?: string;
+  joined_date?: string;
+  responseTime?: string;
+  avatar?: string;
   description?: string;
+  language_pref?: string;
+  completed_bookings_count?: number;
+  id_document_status?: string;
 }
 
 export interface ServiceData {

@@ -164,10 +164,10 @@ export default function VendorLoginPage() {
                     <span className="font-bold text-xs text-charcoal dark:text-white group-hover:text-terracotta">
                       {v.name}
                     </span>
-                    <VerifiedBadge variant="tier" tier={v.trust_tier} />
+                    <VerifiedBadge variant="tier" tier={v.trustTier || v.trust_tier || "Gold"} />
                   </div>
                   <span className="text-[10px] text-charcoal-light/70 dark:text-gray-400 block">
-                    {v.city}, {v.state} • {v.business_type}
+                    {v.location || `${v.city || "Verified Host"}${v.state ? `, ${v.state}` : ""}`} • {v.businessType || v.business_type}
                   </span>
                 </div>
 
