@@ -35,7 +35,8 @@ export default function VendorLoginPage() {
     }
 
     // 1. Check pre-existing mock vendors
-    const foundMock = Object.values(MOCK_VENDORS).find((v) => v.phone === cleanPhone || v.phone.includes(cleanPhone));
+    const mockList = Object.values(MOCK_VENDORS) as VendorData[];
+    const foundMock = mockList.find((v) => v.phone === cleanPhone || (v.phone && v.phone.includes(cleanPhone)));
     if (foundMock) {
       handleLogin(foundMock);
       return;
@@ -72,7 +73,7 @@ export default function VendorLoginPage() {
       completed_bookings_count: 0,
       joined_date: "Sep 2026",
       id_document_status: "verified"
-    };
+    } as any;
 
     handleLogin(newAccount);
   };
@@ -151,7 +152,7 @@ export default function VendorLoginPage() {
           </span>
 
           <div className="space-y-2">
-            {Object.values(MOCK_VENDORS).map((v) => (
+            {(Object.values(MOCK_VENDORS) as VendorData[]).map((v) => (
               <button
                 key={v.id}
                 type="button"
