@@ -23,8 +23,8 @@ export default function CustomerBookingLookupPage() {
 
     // Match phone or booking reference ID
     const matched = MOCK_BOOKINGS.filter(
-      (b) =>
-        b.customer_phone.replace(/[^0-9]/g, "").includes(cleanInput) ||
+      (b: any) =>
+        (b.customerPhone || b.customer_phone || "").replace(/[^0-9]/g, "").includes(cleanInput) ||
         b.id.toLowerCase().includes(phoneNumber.toLowerCase())
     );
 
@@ -98,7 +98,7 @@ export default function CustomerBookingLookupPage() {
                   </div>
                   <div>
                     <span className="text-charcoal-light/60 block font-medium">Booking Date</span>
-                    <span className="font-bold">{b.booking_date}</span>
+                    <span className="font-bold">{b.date || b.booking_date || "Upcoming"}</span>
                   </div>
                 </div>
 

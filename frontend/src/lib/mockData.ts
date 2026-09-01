@@ -48,16 +48,23 @@ export interface ServiceData {
 export interface BookingData {
   id: string;
   serviceId: string;
+  service_id?: string;
   customerName: string;
+  customer_name?: string;
   customerPhone: string;
+  customer_phone?: string;
   customerEmail?: string;
+  customer_email?: string;
   date: string;
+  booking_date?: string;
   people?: number;
   nights?: number;
   specialRequests?: string;
+  cancellation_reason?: string;
   status: "pending" | "confirmed" | "completed" | "cancelled";
   paymentStatus: "pay_on_arrival" | "advance_paid";
   totalPrice: number;
+  total_price?: number;
   service?: ServiceData;
 }
 
