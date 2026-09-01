@@ -1,0 +1,38 @@
+# Root .gitignore for BharatSetu
+
+# Node modules & Next.js build
+node_modules/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Python Virtual environments & cache
+__pycache__/
+*/__pycache__/
+backend/__pycache__/
+backend/*/__pycache__/
+backend/*/*/__pycache__/
+*.py[cod]
+venv/
+.venv/
+backend/venv/
+backend/.venv/
+
+# Databases
+*.sqlite
+*.sqlite3
+*.db
+backend/*.db
+backend/*.sqlite3
+
+# Local Environment & Credentials
+.env
+*.env
+backend/.env
+frontend/.env*.local
+
+# System & IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
