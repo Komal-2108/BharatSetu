@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Compass, Filter, MapPin, Search } from "lucide-react";
@@ -9,7 +9,7 @@ import ServiceCard from "@/components/ServiceCard";
 import EmptyState from "@/components/EmptyState";
 import { useApp } from "@/context/AppContext";
 
-export default function ServicesPage() {
+function ServicesContent() {
   const searchParams = useSearchParams();
   const initialCategory = searchParams.get("category") || "all";
   const { t } = useApp();
@@ -125,5 +125,17 @@ export default function ServicesPage() {
       )}
 
     </div>
+  );
+}
+
+export default function ServicesPage() {
+  return (
+    <Suspense fallback={
+      <div className="max-w-7xl mx-auto px-4 py-20 text-center text-xs font-bold text-charcoal-light/70">
+        Loading services...
+      </div>
+    }>
+      <ServicesContent />
+    </Suspense>
   );
 }
